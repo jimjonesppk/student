@@ -8,7 +8,7 @@ const View = () => {
     var[selected,setSelected]=useState([])
    var[students,setStudents]= useState([])
 useEffect(()=>{
-    axios.get("http://localhost:3005/students")
+    axios.get("http://localhost:3002/product")
     .then(response=>{
     setStudents(students=response.data)
     console.log(students)})
@@ -16,7 +16,7 @@ useEffect(()=>{
 },[])
 const deleteValue=(id)=>{
     console.log(id)
-    axios.delete("http://localhost:3005/students/"+id)
+    axios.delete("http://localhost:3002/product/"+id)
     .then(response=>{
         alert("DELETED")
         window.location.reload(false)
@@ -30,17 +30,20 @@ var finalJSK =<TableContainer>
 <Table>
 <TableHead>
     <TableRow>
-        <TableCell>id</TableCell>
-        <TableCell>Name</TableCell>
-        <TableCell>Grade</TableCell>
+        
+        <TableCell>name</TableCell>
+        <TableCell>brand</TableCell>
+        <TableCell>quantiy</TableCell>
+        <TableCell>Rupeese</TableCell>
     </TableRow>
 </TableHead>
 <TableBody>
     {students.map((value,index)=>{
         return<TableRow>
-            <TableCell>{value.id}</TableCell>
             <TableCell>{value.name}</TableCell>
-            <TableCell>{value.grade}</TableCell>
+            <TableCell>{value.brand}</TableCell>
+            <TableCell>{value.quantiy}</TableCell>
+            <TableCell>{value.Rupeese}</TableCell>
              <TableCell><Button onClick={()=>deleteValue(value.id)} variant='contained' color='error'>DELETE</Button></TableCell>
              <TableCell><Button onClick={()=>updateValue(value)} variant='contained'>UPDATE</Button></TableCell>
         </TableRow>

@@ -8,9 +8,9 @@ const Navbar = () => {
  <Box>
     <AppBar>
        <Toolbar>
-        <Typography>Student-App</Typography><br></br>
-        <Button color='inherit'><Link to ='/'style={{color:'white',textDecoration:'none'}}>View</Link></Button>
-        <Button color='inherit'><Link to='/add'style={{color:'white',textDecoration:'none'}}>Add</Link></Button>
+        <Typography>Products</Typography><br></br>
+        <Button color='inherit'><Link to ='/'style={{color:'white',textDecoration:'none'}}>VIEW</Link></Button>
+        <Button align="center" color='inherit'><Link to='/add'style={{color:'white',textDecoration:'none'}}>ADD PRODUCT</Link></Button>
         </Toolbar>
     </AppBar>
  </Box>

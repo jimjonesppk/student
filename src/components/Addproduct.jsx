@@ -1,8 +1,8 @@
-import { Button, TextField, Typography } from '@mui/material'
-import axios from 'axios'
-import React, { useState } from 'react'
+import { Button, TextField, Typography } from "@mui/material"
+import axios from "axios"
+import React, { useState } from "react"
 
-const Addstudent = (props) => {
+const Addproduct = (props) => {
     var[input,setInput]=useState(props.data)
     console.log(props.data)
         
@@ -53,10 +53,10 @@ onChange={inputhandler}></TextField>
 <Typography>{input.Rupeese}</Typography>
 <br></br>
 <br></br>
-<Button onClick={readvalues}  variant='contained' color='inherit'>Add</Button>
+<Button onClick={readvalues}  variant='contained' color='success'>Add</Button>
 
     </div>
   )
 }
 
-export default Addstudent
+export default Addproduct
