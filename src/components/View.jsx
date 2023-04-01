@@ -1,9 +1,12 @@
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Addstudent from './Addstudent'
 
 const View = () => {
-var[students,setStudents]= useState([])
+    var[update,setUpdate]=useState(false)
+    var[selected,setSelected]=useState([])
+   var[students,setStudents]= useState([])
 useEffect(()=>{
     axios.get("http://localhost:3005/students")
     .then(response=>{
@@ -19,9 +22,11 @@ const deleteValue=(id)=>{
         window.location.reload(false)
     })
 }
-  return (
-    <div>
-      <TableContainer>
+const updateValue=(value)=>{
+    setSelected(value)
+    setUpdate(true)
+}
+var finalJSK =<TableContainer>
 <Table>
 <TableHead>
     <TableRow>
@@ -37,13 +42,17 @@ const deleteValue=(id)=>{
             <TableCell>{value.name}</TableCell>
             <TableCell>{value.grade}</TableCell>
              <TableCell><Button onClick={()=>deleteValue(value.id)} variant='contained' color='error'>DELETE</Button></TableCell>
-             <TableCell><Button variant='contained'>UPDATE</Button></TableCell>
+             <TableCell><Button onClick={()=>updateValue(value)} variant='contained'>UPDATE</Button></TableCell>
         </TableRow>
     })}
 </TableBody>
 </Table>
       </TableContainer>
-    </div>
+    if(update)
+    finalJSK=<Addstudent data={selected} method ="put"/>
+  
+return (
+   finalJSK
   )
 }
 
